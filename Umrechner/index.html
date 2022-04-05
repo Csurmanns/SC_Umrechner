@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>WU</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <h1>Mickey-Rechner</h1>
+    <p id="Einleitung">Der genannte Rechner gibt an, wie sensibel eine Maus reagiert. <br>Rechner von mm in MICKEY </p>
+    <input id="area" type="text" />
+    <input onclick="calc()" type="submit" />
+    <p id="meinAbsatz">Wert in Mickey</p>
+    <img src="mickey.png" alt="">
+</body>
+<script>
+    function calc() {
+        ausgabe = document.getElementById("meinAbsatz")
+        input = document.getElementById("area")
+        ausgabe.innerText = input.value / 10
+    }
+
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(function() { console.log("Service worker registered"); });
+    }
+</script>
+
+</html>
